@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { useUser } from "@clerk/clerk-react";
+import { useUser, AuthenticateWithRedirectCallback } from "@clerk/clerk-react";
 
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
@@ -13,17 +13,32 @@ const App: React.FC = () => {
   return (
     <BrowserRouter>
       <Routes>
+        {/* CALLBACK */}
         <Route
-          path="/"
+          path="/sso-callback"
+          element={<AuthenticateWithRedirectCallback />}
+        />
+
+        {/*  MAIN HOME */}
+        <Route
+          path="/home"
           element={isSignedIn ? <Home /> : <Navigate to="/login" />}
         />
+
+        {/*  DEFAULT REDIRECT */}
+        <Route
+          path="/"
+          element={<Navigate to="/home" />}
+        />
+
         <Route
           path="/login"
-          element={!isSignedIn ? <Login /> : <Navigate to="/" />}
+          element={!isSignedIn ? <Login /> : <Navigate to="/home" />}
         />
+
         <Route
           path="/signup"
-          element={!isSignedIn ? <Signup /> : <Navigate to="/" />}
+          element={!isSignedIn ? <Signup /> : <Navigate to="/home" />}
         />
       </Routes>
     </BrowserRouter>
