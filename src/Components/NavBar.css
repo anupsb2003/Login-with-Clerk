@@ -1,0 +1,93 @@
+.nav{
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 30px;
+    padding:10px;
+    border-radius: 30px;
+    gap:20px;
+    align-items: center;
+    justify-content: center;
+}
+.headline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.headline h2,
+.headline p {
+    margin: 2px;
+}
+.search{
+    background-color: #ffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 35px;
+    margin-left: 200px;
+    gap: 10px;
+}
+.search-icon{
+    background-color: #dbdada;
+    padding: 8px;
+    border-radius: 50%;
+}
+.search input{
+    border:none;
+    width: 250px;
+}
+.mic-icon{
+    margin-left: 5px;
+    background-color: #ffff;
+    padding: 12px;
+    border-radius: 50%;
+}
+.theme{
+    background-color: #ffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 35px;
+    margin-left: 150px;
+    gap: 35px;
+}
+.dark-icon{
+    background-color: #dbdada;
+    padding: 8px;
+    border-radius: 50%;
+}
+.light-icon{
+    padding: 8px;
+    border-radius: 50%;
+}
+.profile{
+    background-color: #ffff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 200px;
+    border-radius: 35px;
+    margin-left: 10px;
+    padding: 3px;
+    
+}
+.img-profile{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: 3px;
+}
+.name{
+    margin: 3px;
+    font-size: medium;
+    font-weight: bold;
+}
+.role{
+     margin: 2px;
+    font-size: small;
+}

@@ -4,7 +4,7 @@ import { useUser, AuthenticateWithRedirectCallback } from "@clerk/clerk-react";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
-
+import './App.css';
 const App: React.FC = () => {
   const { isSignedIn, isLoaded } = useUser();
 
