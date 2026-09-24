@@ -10,6 +10,8 @@
     gap:20px;
     align-items: center;
     justify-content: center;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 .headline {
     display: flex;
