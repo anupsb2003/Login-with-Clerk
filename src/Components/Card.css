@@ -1,0 +1,47 @@
+.cardCont{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+.card{
+    height: 110px;
+    background-color: #fff;
+    width: 250px;
+    border-radius: 20px;
+    padding: 20px;
+}
+.student{
+    background-color: #ff9539;
+    color: #ffff;
+    padding: 8px;
+    border-radius: 50%;
+}
+.grade{
+    background-color: #1a6439;
+    color: #ffff;
+    padding: 8px;
+    border-radius: 50%;
+}
+.absent{
+    background-color: #000000;
+    color: #ffff;
+    padding: 8px;
+    border-radius: 50%;
+}
+.satisfaction{
+    background-color: #57C785;
+    color: #ffff;
+    padding: 8px;
+    border-radius: 50%;
+}
+.carHead{
+    color:#989494;
+    font-size: 18px;
+    font-weight: 1000;
+    margin-bottom: 0px;
+}
+h1{
+    margin-top: 5px;
+}

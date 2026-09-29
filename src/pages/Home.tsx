@@ -2,6 +2,8 @@ import './Home.css'
 import SideBar from '../Components/SideBar';
 import NavBar from '../Components/NavBar';
 import Academic from "../Components/Academic";
+import Card from '../Components/Card';
+import StudentList from '../Components/StudentList';
 function Home(){
     return (
         <div className='home'>
@@ -9,7 +11,8 @@ function Home(){
             <div className='dashboard'>
                 <NavBar />
                 <Academic />
-                <h1>Welcome </h1>
+                <Card />
+                <StudentList />
             </div>
         </div>
     )

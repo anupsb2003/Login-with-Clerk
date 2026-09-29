@@ -1,13 +1,13 @@
+import { UserButton, useUser} from "@clerk/clerk-react";
 import { useState, useEffect } from 'react';
 import "./NavBar.css";
 import { FaSearch, FaMicrophone } from "react-icons/fa";
 import { IoMoonOutline, IoSunnyOutline } from "react-icons/io5";
 import { IoIosNotifications } from "react-icons/io";
-import profileImage from "../assets/image.png";
 function NavBar(){
     const [time, setTime] = useState(new Date());
     const [search, setSearch] = useState('');
-
+    const {user} = useUser();
     useEffect(()=>{
         const timerID = setInterval(()=>{
             setTime(new Date());
@@ -20,7 +20,7 @@ function NavBar(){
     return(
         <div className="nav">
             <div className="headline">
-                <h2>Dashboard </h2>
+                <h3>Welcome {user?.firstName} </h3>
                 <p>{time.toLocaleTimeString()}</p>
             </div>
             <div className='search'>
@@ -39,10 +39,10 @@ function NavBar(){
             </div>
             <IoIosNotifications className='mic-icon' />
             <div className='profile'>
-                <img src={profileImage} alt='profile' className='img-profile'/>
+                <UserButton afterSignOutUrl="/login" />
                 <div className='profile-row' >
-                    <p className='name' >Name....</p>
-                    <p className='role' >Ui Designer..</p>
+                    <p className='name' >{user?.firstName}</p>
+                    <p className='role' >Ui Designer.....</p>
                 </div>
             </div>
         </div>
