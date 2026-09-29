@@ -8,9 +8,13 @@
 .card{
     height: 110px;
     background-color: #fff;
-    width: 250px;
+    width: 260px;
     border-radius: 20px;
     padding: 20px;
+    transition: transform 0.6s ease; 
+}
+.card:hover{
+    transform: scale(1.08); 
 }
 .student{
     background-color: #ff9539;

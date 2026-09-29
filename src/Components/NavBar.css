@@ -48,6 +48,9 @@
     padding: 12px;
     border-radius: 50%;
 }
+.mic-icon:hover{
+    transform : scale(1.25);
+}
 .theme{
     background-color: #ffff;
     display: flex;
