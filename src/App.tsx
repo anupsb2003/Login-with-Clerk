@@ -21,24 +21,24 @@ const App: React.FC = () => {
 
         {/*  MAIN HOME */}
         <Route
-          path="/home"
+          path="/Home"
           element={isSignedIn ? <Home /> : <Navigate to="/login" />}
         />
 
         {/*  DEFAULT REDIRECT */}
         <Route
           path="/"
-          element={<Navigate to="/home" />}
+          element={<Navigate to="/Home" />}
         />
 
         <Route
           path="/login"
-          element={!isSignedIn ? <Login /> : <Navigate to="/home" />}
+          element={!isSignedIn ? <Login /> : <Navigate to="/Home" />}
         />
 
         <Route
           path="/signup"
-          element={!isSignedIn ? <Signup /> : <Navigate to="/home" />}
+          element={!isSignedIn ? <Signup /> : <Navigate to="/Home" />}
         />
       </Routes>
     </BrowserRouter>
