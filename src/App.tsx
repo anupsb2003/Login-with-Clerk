@@ -13,6 +13,7 @@ import "./App.css";
 const App: React.FC = () => {
   const { isSignedIn, isLoaded } = useUser();
 
+  // Wait until Clerk finishes checking authentication
   if (!isLoaded) {
     return <div>Loading...</div>;
   }
@@ -21,7 +22,7 @@ const App: React.FC = () => {
     <BrowserRouter>
       <Routes>
 
-        {/* Clerk OAuth Callback */}
+        {/* Clerk OAuth / SSO Callback */}
         <Route
           path="/sso-callback"
           element={<AuthenticateWithRedirectCallback />}
@@ -31,11 +32,7 @@ const App: React.FC = () => {
         <Route
           path="/login"
           element={
-            isSignedIn ? (
-              <Navigate to="/" replace />
-            ) : (
-              <Login />
-            )
+            isSignedIn ? <Navigate to="/Home" replace /> : <Login />
           }
         />
 
@@ -43,36 +40,38 @@ const App: React.FC = () => {
         <Route
           path="/signup"
           element={
-            isSignedIn ? (
-              <Navigate to="/" replace />
-            ) : (
-              <Signup />
-            )
+            isSignedIn ? <Navigate to="/Home" replace /> : <Signup />
           }
         />
 
-        {/* Home */}
+        {/* Protected Home */}
+        <Route
+          path="/Home"
+          element={
+            isSignedIn ? <Home /> : <Navigate to="/login" replace />
+          }
+        />
+
+        {/* Default */}
         <Route
           path="/"
           element={
-            isSignedIn ? (
-              <Home />
-            ) : (
-              <Navigate to="/login" replace />
-            )
+            <Navigate
+              to={isSignedIn ? "/Home" : "/login"}
+              replace
+            />
           }
-        />
-
-        {/* If Clerk or old code sends user to /home */}
-        <Route
-          path="/home"
-          element={<Navigate to="/" replace />}
         />
 
         {/* Unknown routes */}
         <Route
           path="*"
-          element={<Navigate to="/" replace />}
+          element={
+            <Navigate
+              to={isSignedIn ? "/Home" : "/login"}
+              replace
+            />
+          }
         />
 
       </Routes>
