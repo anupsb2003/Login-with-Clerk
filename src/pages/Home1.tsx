@@ -1,7 +1,7 @@
 import { UserButton, useUser } from "@clerk/clerk-react";
 import { useEffect, useState } from "react";
 
-const Home: React.FC = () => {
+const Home1: React.FC = () => {
   const [show, setShow] = useState(false);
   const { user } = useUser();
 
@@ -76,7 +76,7 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default Home1;
 
 const styles: any = {
   page: {
