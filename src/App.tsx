@@ -13,7 +13,6 @@ import "./App.css";
 const App: React.FC = () => {
   const { isSignedIn, isLoaded } = useUser();
 
-  // Wait until Clerk finishes checking authentication
   if (!isLoaded) {
     return <div>Loading...</div>;
   }
@@ -22,7 +21,7 @@ const App: React.FC = () => {
     <BrowserRouter>
       <Routes>
 
-        {/* Clerk OAuth / SSO Callback */}
+        {/* Clerk OAuth Callback */}
         <Route
           path="/sso-callback"
           element={<AuthenticateWithRedirectCallback />}
@@ -32,7 +31,11 @@ const App: React.FC = () => {
         <Route
           path="/login"
           element={
-            isSignedIn ? <Navigate to="/Home" replace /> : <Login />
+            isSignedIn ? (
+              <Navigate to="/" replace />
+            ) : (
+              <Login />
+            )
           }
         />
 
@@ -40,38 +43,36 @@ const App: React.FC = () => {
         <Route
           path="/signup"
           element={
-            isSignedIn ? <Navigate to="/Home" replace /> : <Signup />
+            isSignedIn ? (
+              <Navigate to="/" replace />
+            ) : (
+              <Signup />
+            )
           }
         />
 
-        {/* Protected Home */}
-        <Route
-          path="/Home"
-          element={
-            isSignedIn ? <Home /> : <Navigate to="/login" replace />
-          }
-        />
-
-        {/* Default */}
+        {/* Home */}
         <Route
           path="/"
           element={
-            <Navigate
-              to={isSignedIn ? "/Home" : "/login"}
-              replace
-            />
+            isSignedIn ? (
+              <Home />
+            ) : (
+              <Navigate to="/login" replace />
+            )
           }
+        />
+
+        {/* If Clerk or old code sends user to /home */}
+        <Route
+          path="/home"
+          element={<Navigate to="/" replace />}
         />
 
         {/* Unknown routes */}
         <Route
           path="*"
-          element={
-            <Navigate
-              to={isSignedIn ? "/Home" : "/login"}
-              replace
-            />
-          }
+          element={<Navigate to="/" replace />}
         />
 
       </Routes>
